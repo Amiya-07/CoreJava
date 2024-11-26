@@ -8,6 +8,25 @@ public class Order
 	public Order(String orderId, String productName) 
 	{
 		super();
+		if(orderId.charAt(0)=='-' || orderId.charAt(0)=='0') {
+			System.err.println("ERROR : Invalid order id");
+			System.exit(0);
+		}
+		int[] arr = {0,1,2,3,4,5,6,7,8,9};
+		for(int i=0;i<orderId.length();i++) {
+			int count = 0;
+			int num = orderId.charAt(i)-'0';
+			for(int j=0;j<arr.length;j++) {
+				if(num == arr[j]) {
+					count++;
+					break;
+				}
+			}
+			if(count==0) {
+				System.err.println("ERROR : Invalid order id");
+				System.exit(0);
+			}
+		}
 		this.orderId = orderId;
 		this.productName = productName;
 	}
