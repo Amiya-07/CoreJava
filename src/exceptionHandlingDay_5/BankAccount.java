@@ -76,7 +76,7 @@ public class BankAccount implements Bank
 		{
 			System.out.println("Congratulation your Loan has Approved");
 		}
-		else if (amount<50000 && this.balance<50000)
+		else if (amount<50000 || this.balance<50000)
 		{
 			throw new LoanNotAllowedException("Loan Request rejected");
 		}
