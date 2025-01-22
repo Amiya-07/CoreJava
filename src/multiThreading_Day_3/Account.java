@@ -10,7 +10,7 @@ public class Account
 		{
 			try 
 			{
-				wait(1000);
+				wait();
 			} 
 			catch (InterruptedException e) 
 			{
