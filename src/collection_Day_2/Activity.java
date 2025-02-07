@@ -21,7 +21,7 @@ public class Activity
 
 	@Override
 	public String toString() {
-		return "city " + name + " ( " + schedule + ")";
+		return name + " (" + schedule + ")";
 	}
 	
 	
