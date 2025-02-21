@@ -35,6 +35,25 @@ public class StoreObject {
 						System.err.println("Invalid Input");
 				}
 			}
+			
+			/*
+		 	Using Properties File
+			String filePath = "D:\\new\\data.properties";		
+				var writer = new FileWriter(filePath);
+				var properties = new Properties();
+				
+				try(writer)
+				{
+					String object = Student.getStudentRecord().toString();
+					properties.setProperty("1", object);
+					properties.store(writer, "Student Object set");
+					System.out.println("Student record Successfully stored");
+				}
+				catch(Exception e)
+				{
+					e.printStackTrace();
+				}
+		*/
 		}
 		catch(Exception e)
 		{
@@ -45,21 +64,3 @@ public class StoreObject {
 }
 
 
-/*
- 	Using Properties File
-	String filePath = "D:\\new\\data.properties";		
-		var writer = new FileWriter(filePath);
-		var properties = new Properties();
-		
-		try(writer)
-		{
-			String object = Student.getStudentRecord().toString();
-			properties.setProperty("1", object);
-			properties.store(writer, "Student Object zset");
-			System.out.println("Student record Successfully stored");
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-*/
