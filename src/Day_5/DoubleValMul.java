@@ -1,5 +1,7 @@
 package Day_5;
 
+
+
 public class DoubleValMul {
 
 	public static void main(String[] args)
