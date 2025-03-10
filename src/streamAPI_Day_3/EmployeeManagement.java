@@ -37,6 +37,9 @@ public class EmployeeManagement {
 					findHighestSalaryByDepartment();
 					break;
 					
+				case 6:
+					categorizeAndIncreaseSalary();
+					break;
 				case 7:
 					System.err.println("YOU ARE EXITING NOW");
 					for(Employee e : l)
@@ -183,8 +186,22 @@ public class EmployeeManagement {
 	
 	public static void categorizeAndIncreaseSalary()
 	{
-		Map<String, Optional<Employee>> l3 = l.stream().collect(Collectors.groupingBy(Employee::getGender, Collectors.maxBy(Comparator.comparingDouble(Employee::getSalary))));
+		 Map<String, Map<String, Employee>> hsgd = l.stream()
+		            .collect(Collectors.groupingBy(
+		                Employee::getGender,Collectors.groupingBy(Employee::getDepartment,Collectors.collectingAndThen(Collectors.maxBy(Comparator.comparingDouble(Employee::getSalary)),Optional::get))));
+		        hsgd.forEach((g, d) -> {
+		            System.out.println("Gender: " + g);
+		            d.forEach((dept, emp) -> {
+		                System.out.print("  Department: " + dept);
+		                System.out.print("    Highest Salary Employee: " + emp+"\n");
+		            });
+		        });
+
+		/*
+		 * Map<String, Optional<Employee>> l3 = l.stream().collect(Collectors.groupingBy(Employee::getGender, Collectors.maxBy(Comparator.comparingDouble(Employee::getSalary))));
+		
 		l3.forEach((x,y)-> System.out.println(x+"  "+y.get()));
+		 */
 	}
 	
 	
